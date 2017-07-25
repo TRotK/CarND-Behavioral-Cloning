@@ -37,7 +37,7 @@ Using the Udacity provided simulator and my drive.py file, the car can be driven
 ```sh
 python3 drive.py model.h5
 ```
-I have increased the speed to 20 mph with the successful simulating run shown in video.mp4. It could also handle even higher speed, but I did test.
+I have increased the speed to 20 mph in drive.py with the successful simulating run shown in video.mp4. It could also handle even higher speed while I did not test.
 
 ####3. Submission code is usable and readable
 
