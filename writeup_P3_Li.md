@@ -93,7 +93,7 @@ Here is a visualization of the architecture (note: visualizing the architecture 
 
 ####3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
+To capture good driving behavior, I first recorded two laps for counter-clockwise and clockwise, respectively,  on track one using center lane driving. Here is an example image of center lane driving:
 
 ![alt text][image2]
 
@@ -104,7 +104,7 @@ To augment the data set, I also flipped images and angles thinking that this wou
 ![alt text][image3]
 ![alt text][image4]
 
-After the collection process, I had X number of data points. I then preprocessed this data by normalization and cropping.
+After the collection process, I had 58,128 data points. I then preprocessed this data by normalization and cropping.
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 

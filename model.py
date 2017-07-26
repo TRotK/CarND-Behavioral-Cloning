@@ -12,21 +12,21 @@ FLAGS = flags.FLAGS
 flags.DEFINE_integer('epochs', 10, "The number of epochs.")
 
 # read csv
-samples = []
-with open('data/driving_log.csv') as csvfile:
+lines = []
+with open('data_copy/driving_log.csv') as csvfile:
 	reader = csv.reader(csvfile)
 	next(reader) # skip header
 	for line in reader:
-		samples.append(line)
+		lines.append(line)
 
 from sklearn.utils import shuffle
 from sklearn.model_selection import train_test_split
-train_samples, validation_samples = train_test_split(samples, test_size=0.2)
+train_samples, validation_samples = train_test_split(lines, test_size=0.2)
 
 # define generator to read images
 def generator(samples, batch_size):
 	source_path = './data_copy/IMG/'
-	correction = .2
+	correction = .15
 	num_samples = len(samples)
 	while 1: # Loop forever so the generator never terminates
 		samples = shuffle(samples)
@@ -98,14 +98,16 @@ model.add(Dense(1))
 
 model.compile(loss='mse', optimizer='adam')
 history_object = model.fit_generator(train_generator, samples_per_epoch= 
-	len(train_samples), validation_data=validation_generator, 
+	len(train_samples) * 4, validation_data=validation_generator, 
 	nb_val_samples=len(validation_samples), nb_epoch=FLAGS.epochs, verbose=1)
 
 model.save('model.h5')
 
 # model visualization
 from keras.utils.visualize_util import plot
-graph = plot(model, to_file='my_model.png', show_shapes=True)
+graph = plot(model, to_file='model.png', show_shapes=True)
+# from keras.utils import plot_model
+# plot_model(model, to_file='model.png', show_shapes=True)
 
 # visualizing loss
 from keras.models import Model
