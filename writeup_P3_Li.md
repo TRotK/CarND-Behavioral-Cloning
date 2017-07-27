@@ -77,7 +77,7 @@ However, the model performed ok in the straightaway, but failed in the curves. S
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
-To combat the overfitting, I removed the last but one fully-connected layers from the NVIDIA model.
+To combat the overfitting, I removed the last but one fully-connected layers from the NVIDIA model and also applied dropout with the probability of 0.9 before the output layer of the new model.
 
 The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track. To improve the driving behavior in these cases, I collected a little more data in the curves.
 
@@ -108,7 +108,7 @@ After the collection process, I had 58,128 data points. I then preprocessed this
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 7 as evidenced by training and validation loss not decreasing. I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 10 as evidenced by training and validation loss not decreasing. I used an adam optimizer so that manually training the learning rate wasn't necessary.
 
 The figure below visualizes the outputting training and validation loss.
 

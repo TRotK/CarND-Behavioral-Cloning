@@ -77,7 +77,7 @@ validation_generator = generator(validation_samples, batch_size=32)
 # define the model
 # nvidia
 from keras.models import Sequential
-from keras.layers import Flatten, Dense, Lambda, Cropping2D, Reshape, Dropout
+from keras.layers import Flatten, Dense, Lambda, Cropping2D, Reshape, Dropout, SpatialDropout2D
 from keras.layers.convolutional import Convolution2D
 from keras.layers.pooling import MaxPooling2D
 
@@ -90,9 +90,11 @@ model.add(Convolution2D(36, 5, 5, subsample=(2, 2), activation='relu'))
 model.add(Convolution2D(48, 5, 5, subsample=(2, 2), activation='relu'))
 model.add(Convolution2D(64, 3, 3, activation='relu'))
 model.add(Convolution2D(64, 3, 3, activation='relu'))
+# model.add(SpatialDropout2D(.8, dim_ordering='default'))
 model.add(Flatten())
 model.add(Dense(1164, activation='relu'))
 model.add(Dense(100, activation='relu'))
+model.add(Dropout(.9))
 # model.add(Dense(50, activation='relu'))
 model.add(Dense(1))
 
