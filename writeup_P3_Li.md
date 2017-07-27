@@ -49,7 +49,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 The NVIDIA model is adopted with slightly modification, which consists of a convolution neural network with 5x5 and 3x3 filter sizes and depths between 24 and 64 (model.py lines 88-92) 
 
-The model includes RELU layers to introduce nonlinearity (code line 88-95), and the data is normalized in the model using a Keras Lambda layer (code line 86) and cropped using a Keras Cropping2D layer (code line 87) 
+The model includes RELU layers to introduce nonlinearity (code line 88-96), and the data is normalized in the model using a Keras Lambda layer (code line 87) and cropped using a Keras Cropping2D layer (code line 87) 
 
 ####2. Attempts to reduce overfitting in the model
 
@@ -57,7 +57,7 @@ The model was trained and validated on different data sets to ensure that the mo
 
 ####3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 99).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 101).
 
 ####4. Appropriate training data
 
@@ -85,7 +85,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 ####2. Final Model Architecture
 
-The final model architecture (model.py lines 84-97) consisted of a convolution neural network with the following layers and layer sizes.
+The final model architecture (model.py lines 84-99) consisted of a convolution neural network with the following layers and layer sizes.
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
